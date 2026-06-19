@@ -1,3 +1,5 @@
+# practice functions from python-practice.com
+
 import re
 
 # Create a function called `count_vowels` that returns the total amount of vowels in a string. (a, e, i, o, u)
