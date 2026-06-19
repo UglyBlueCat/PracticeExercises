@@ -1,7 +1,7 @@
 # tests for practice functions from python-practice.com
 
 import unittest
-#import pytest
+import pytest
 from App import PracticeFunctions
 
 class MyTestCase(unittest.TestCase):
