@@ -3,7 +3,7 @@ def sudoku_quadrant_checker(sudoku_board):
     print(tag + f'sudoku_board: {sudoku_board}')
     response = "legal"
     error_coordinates = []
-    error_quadrants = ""
+    error_quadrants = []
     sudoku_board_matrix = sudoku_convert_board_to_matrix(sudoku_board)
 
     error_coordinates += sudoku_row_checker(sudoku_board_matrix)
@@ -13,13 +13,19 @@ def sudoku_quadrant_checker(sudoku_board):
 
     for coordinate in error_coordinates:
         print(tag + f'coordinate: {coordinate}')
-        if len(error_quadrants) > 0:
-            error_quadrants += ','
-        error_quadrants += str(sudoku_quadrant_from_coordinate(coordinate))
+        error_quadrants.append(sudoku_quadrant_from_coordinate(coordinate))
     print(tag + f'error_quadrants: {error_quadrants}')
 
-    if len(error_quadrants) > 0:
-        response = str(error_quadrants)
+    error_quadrants_string = ''
+    for error_quadrant in sorted(error_quadrants):
+        if not str(error_quadrant) in error_quadrants_string:
+            if len(error_quadrants_string) > 0:
+                error_quadrants_string += ','
+            error_quadrants_string += str(error_quadrant)
+
+    if len(error_quadrants_string) > 0:
+        response = error_quadrants_string
+
     print(tag + f'response: {response}')
 
     return response
