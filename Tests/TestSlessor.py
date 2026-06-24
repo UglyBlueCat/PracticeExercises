@@ -2,55 +2,60 @@ import unittest
 
 from App import Slessor
 
-class MyTestCase(unittest.TestCase):
-    #     Sudoku Quadrant Checker
-    #
-    # the strArr parameter being passed which will represent a 9x9 Sudoku board of integers ranging from 1 to 9.
-    #
-    # The rules of Sudoku are to place each of the 9 integers integer in every row and column
-    # and not have any integers repeat in the respective row, column, or 3x3 sub-grid.
-    #
-    # The input strArr will represent a Sudoku board
-    # and it will be structured in the following format: ["(N,N,N,N,N,x,x,x,x)","(...)","(...)",...)]
-    #
-    # where N stands for an integer between 1 and 9 and x will stand for an empty cell.
-    #
-    # Your program will determine if the board is legal; the board also does not necessarily have to be finished.
-    #
-    # If the board is legal, your program should return the string legal
-    # but if it isn't legal, it should return the 3x3 quadrants (separated by commas) where the errors exist.
-    #
-    # The 3x3 quadrants are numbered from 1 to 9 starting from top-left going to bottom-right.
-    def test_sudoku_quadrant_checker(self):
-        self.assertEqual(Slessor.sudoku_quadrant_checker(
-            [
-                "(1,2,3,4,5,6,7,8,1)",
-                "(x,x,x,x,x,x,x,x,x)",
-                "(x,x,x,x,x,x,x,x,x)",
-                "(1,x,x,x,x,x,x,x,x)",
-                "(x,x,x,x,x,x,x,x,x)",
-                "(x,x,x,x,x,x,x,x,x)",
-                "(x,x,x,x,x,x,x,x,x)",
-                "(x,x,x,x,x,x,x,x,x)",
-                "(x,x,x,x,x,x,x,x,x)"
-            ]
-        ),
-            "1,3,4")
+#     Sudoku Quadrant Checker
+#
+# the strArr parameter being passed which will represent a 9x9 Sudoku board of integers ranging from 1 to 9.
+#
+# The rules of Sudoku are to place each of the 9 integers integer in every row and column
+# and not have any integers repeat in the respective row, column, or 3x3 sub-grid.
+#
+# The input strArr will represent a Sudoku board
+# and it will be structured in the following format: ["(N,N,N,N,N,x,x,x,x)","(...)","(...)",...)]
+#
+# where N stands for an integer between 1 and 9 and x will stand for an empty cell.
+#
+# Your program will determine if the board is legal; the board also does not necessarily have to be finished.
+#
+# If the board is legal, your program should return the string legal
+# but if it isn't legal, it should return the 3x3 quadrants (separated by commas) where the errors exist.
+#
+# The 3x3 quadrants are numbered from 1 to 9 starting from top-left going to bottom-right.
+class test_sudoku_quadrant_checker(unittest.TestCase):
+    def test_sudoku_quadrant_checker_1(self):
+        self.assertEqual(
+            "1,3,4",
+            Slessor.sudoku_quadrant_checker(
+                [
+                    "(1,2,3,4,5,6,7,8,1)",
+                    "(x,x,x,x,x,x,x,x,x)",
+                    "(x,x,x,x,x,x,x,x,x)",
+                    "(1,x,x,x,x,x,x,x,x)",
+                    "(x,x,x,x,x,x,x,x,x)",
+                    "(x,x,x,x,x,x,x,x,x)",
+                    "(x,x,x,x,x,x,x,x,x)",
+                    "(x,x,x,x,x,x,x,x,x)",
+                    "(x,x,x,x,x,x,x,x,x)"
+                ]
+            )
+        )
 
-        self.assertEqual(Slessor.sudoku_quadrant_checker(
-            [
-                "(1,2,3,4,5,6,7,8,9)",
-                "(x,x,x,x,x,x,x,x,x)",
-                "(6,x,5,x,3,x,x,4,x)",
-                "(2,x,1,1,x,x,x,x,x)",
-                "(x,x,x,x,x,x,x,x,x)",
-                "(x,x,x,x,x,x,x,x,x)",
-                "(x,x,x,x,x,x,x,x,x)",
-                "(x,x,x,x,x,x,x,x,x)",
-                "(x,x,x,x,x,x,x,x,9)"
-            ]
-        ), "3,4,5,9")
-
+    def test_sudoku_quadrant_checker_2(self):
+        self.assertEqual(
+            "3,4,5,9",
+            Slessor.sudoku_quadrant_checker(
+                [
+                    "(1,2,3,4,5,6,7,8,9)",
+                    "(x,x,x,x,x,x,x,x,x)",
+                    "(6,x,5,x,3,x,x,4,x)",
+                    "(2,x,1,1,x,x,x,x,x)",
+                    "(x,x,x,x,x,x,x,x,x)",
+                    "(x,x,x,x,x,x,x,x,x)",
+                    "(x,x,x,x,x,x,x,x,x)",
+                    "(x,x,x,x,x,x,x,x,x)",
+                    "(x,x,x,x,x,x,x,x,9)"
+                ]
+            )
+        )
 # Step Walking In: 3 Out: 3
 #
 # Have the function StepWalking(num) take the num parameter being passed which will be an integer between 1 and 15 that represents the number of stairs you will have to climb.
@@ -70,8 +75,8 @@ class MyTestCase(unittest.TestCase):
 #
 # Input: 3
 # Output: 3
-
-    def test_step_walk_in_out(self):
+class test_step_walk_in_out(unittest.TestCase):
+    def test_step_walk_in_out_1(self):
         self.assertEqual(True, False)
 
 # Wildcard Characters
@@ -96,8 +101,8 @@ class MyTestCase(unittest.TestCase):
 # Output: false
 # Input: "**+*{2} mmmrrrkbb"
 # Output: true
-
-    def test_wildcard_characters(self):
+class test_wildcard_characters(unittest.TestCase):
+    def test_wildcard_characters_1(self):
         self.assertEqual(True, False)
 
 # Wildcards
@@ -120,8 +125,8 @@ class MyTestCase(unittest.TestCase):
 # Output: false
 # Input: "$**+*{2} 9mmmrrrkbb"
 # Output: true
-
-    def test_wildcards(self):
+class test_wildcards(unittest.TestCase):
+    def test_wildcards_1(self):
         self.assertEqual(True, False)
 
 # Tetris Move
@@ -146,8 +151,8 @@ class MyTestCase(unittest.TestCase):
 # Output: 2
 # Input: ["O", "4", "3", "2", "3", "5", "1", "0", "1", "2", "4", "3", "4"]
 # Output: 0
-
-    def test_tetris_move(self):
+class test_tetris_move(unittest.TestCase):
+    def test_tetris_move_1(self):
         self.assertEqual(True, False)
 
 # Switch Sort
@@ -169,8 +174,8 @@ class MyTestCase(unittest.TestCase):
 # Output: 2
 # Input: [1,3,4,2]
 # Output: 2
-
-    def test_switch_sort(self):
+class test_switch_sort(unittest.TestCase):
+    def test_switch_sort_1(self):
         self.assertEqual(True, False)
 
 if __name__ == '__main__':
