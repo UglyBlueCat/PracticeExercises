@@ -85,3 +85,6 @@ def sudoku_quadrant_from_coordinate(coordinate):
         else:
             print(tag + f'2 < column/3 ({column/3})')
             return 9
+
+def step_walk_in_out(number_of_steps):
+    return number_of_steps

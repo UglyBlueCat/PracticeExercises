@@ -77,7 +77,10 @@ class TestSudokuQuadrantChecker(unittest.TestCase):
 # Output: 3
 class TestStepWalkInOut(unittest.TestCase):
     def test_step_walk_in_out_1(self):
-        self.assertEqual(True, False)
+        self.assertEqual(1, Slessor.step_walk_in_out(1))
+
+    def test_step_walk_in_out_2(self):
+        self.assertEqual(3, Slessor.step_walk_in_out(3))
 
 # Wildcard Characters
 #
