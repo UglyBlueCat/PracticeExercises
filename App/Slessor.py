@@ -24,29 +24,42 @@ def sudoku_quadrant_checker(sudoku_board):
 def sudoku_row_checker(sudoku_board):
     tag = 'sudoku_row_checker | '
     error_coordinates = []
+    sudoku_board_matrix = sudoku_convert_board_to_matrix(sudoku_board)
 
-    for row in sudoku_board:
+    for row in sudoku_board_matrix:
         # print(tag + f'row: {row}')
-        row_list = row.strip('()').split(',')
-        # print(tag + f'row_list: {row_list}')
 
         for i in range(1,10):
-            i_count = row_list.count(str(i))
+            i_count = row.count(str(i))
             # print(tag + f'i: {i} i_count: {i_count}')
 
             if i_count > 1:
-                row_index = sudoku_board.index(row)
+                row_index = sudoku_board_matrix.index(row)
                 # print(tag + f'row_index: {row_index}')
 
                 prev_column_index = 0
                 for j in range (i_count):
-                    column_index = row_list.index(str(i), prev_column_index)
+                    column_index = row.index(str(i), prev_column_index)
                     # print(tag + f'column_index: {column_index}')
                     prev_column_index = column_index + 1
                     error_coordinates.append([row_index + 1, column_index + 1])
 
     # print(tag + f'error_coordinates: {error_coordinates}')
     return error_coordinates
+
+def sudoku_convert_board_to_matrix(sudoku_board):
+    tag = 'sudoku_row_checker | '
+    print(tag + f'sudoku_board: {sudoku_board}')
+    sudoku_board_matrix = []
+
+    for row in sudoku_board:
+        print(tag + f'row: {row}')
+        row_list = row.strip('()').split(',')
+        print(tag + f'row_list: {row_list}')
+        sudoku_board_matrix.append(row_list)
+
+    print(tag + f'sudoku_board_matrix: {sudoku_board_matrix}')
+    return sudoku_board_matrix
 
 def sudoku_quadrant_from_coordinate(coordinate):
     tag = 'sudoku_quadrant_from_coordinate | '
