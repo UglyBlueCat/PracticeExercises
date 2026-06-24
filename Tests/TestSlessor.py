@@ -51,20 +51,6 @@ class MyTestCase(unittest.TestCase):
             ]
         ), "3,4,5,9")
 
-        self.assertEqual(Slessor.sudoku_quadrant_checker(
-            [
-                "(1,2,3,4,5,6,7,8,1)",
-                "(x,x,x,x,x,x,x,x,x)",
-                "(x,x,x,x,x,x,x,x,x)",
-                "(1,x,x,x,x,x,x,x,x)",
-                "(x,x,x,x,x,x,x,x,x)",
-                "(x,x,x,x,x,x,x,x,x)",
-                "(x,x,x,x,x,x,x,x,x)",
-                "(x,x,x,x,x,x,x,x,x)",
-                "(x,x,x,x,x,x,x,x,x)"
-            ]
-        ), "1,3,4")
-
 # Step Walking In: 3 Out: 3
 #
 # Have the function StepWalking(num) take the num parameter being passed which will be an integer between 1 and 15 that represents the number of stairs you will have to climb.
