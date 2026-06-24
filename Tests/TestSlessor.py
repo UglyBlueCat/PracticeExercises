@@ -88,11 +88,14 @@ class TestStepWalkInOut(unittest.TestCase):
 #
 # The first string will consist of the following sets of characters: +, *, and {N} which is optional.
 #
-# The plus (+) character represents a single alphabetic character, the asterisk (*) represents a sequence of the same character of length 3 unless it is followed by {N} which represents how many characters should appear in the sequence where N will be at least 1.
+# The plus (+) character represents a single alphabetic character,
+# the asterisk (*) represents a sequence of the same character of length 3
+# unless it is followed by {N} which represents how many characters should appear in the sequence where N will be at least 1.
 #
 # Your goal is to determine if the second string exactly matches the pattern of the first string in the input.
 #
-# For example: if str is "++*{5} gheeeee" then the second string in this case does match the pattern, so your program should return the string true.
+# For example: if str is "++*{5} gheeeee" then the second string in this case does match the pattern,
+# so your program should return the string true.
 #
 # If the second string does not match the pattern your program should return the string false.
 #
@@ -106,14 +109,19 @@ class TestStepWalkInOut(unittest.TestCase):
 # Output: true
 class TestWildcardCharacters(unittest.TestCase):
     def test_wildcard_characters_1(self):
-        self.assertEqual(True, False)
+        self.assertEqual(Slessor.wildcard_characters("+++++* abcdemmmmmm"), False)
 
+    def test_wildcard_characters_2(self):
+        self.assertEqual(Slessor.wildcard_characters("**+*{2} mmmrrrkbb"), True)
 
 # Tetris Move
 #
-# Have the function TetrisMove(strArr) take strArr parameter being passed which will be an array containing one letter followed by 12 numbers representing a Tetris piece followed by the fill levels for the 12 columns of the board.
+# Have the function TetrisMove(strArr) take strArr parameter being passed which will be an array
+# containing one letter followed by 12 numbers representing a Tetris piece
+# followed by the fill levels for the 12 columns of the board.
 #
-# Calculate the greatest number of horizontal lines that can be completed when the piece arrives at the bottom assuming it is dropped immediately after being rotated and moved horizontally from the top.
+# Calculate the greatest number of horizontal lines that can be completed when the piece arrives at the bottom
+# assuming it is dropped immediately after being rotated and moved horizontally from the top.
 #
 # Tricky combinations of vertical and horizontal movements are excluded.
 #
@@ -123,7 +131,8 @@ class TestWildcardCharacters(unittest.TestCase):
 #
 # with an input of ["L","3","4","4","5","6","2","0","6","5","3","6","6"], the board will look something like this:
 #
-# Your result should be 3 because the L piece can be rotated and dropped in column 6-7 which will complete 3 full rows of blocks.
+# Your result should be 3 because the L piece can be rotated and dropped in column 6-7
+# which will complete 3 full rows of blocks.
 #
 # Hard challenges are worth 15 points and you are not timed for them.
 # Examples
@@ -133,19 +142,33 @@ class TestWildcardCharacters(unittest.TestCase):
 # Output: 0
 class TestTetrisMove(unittest.TestCase):
     def test_tetris_move_1(self):
-        self.assertEqual(True, False)
+        self.assertEqual(Slessor.tetris_move(["I", "2", "4", "3", "4", "5", "2", "0", "2", "2", "3", "3", "3"]), 2)
+
+    def test_tetris_move_2(self):
+        self.assertEqual(Slessor.tetris_move(["O", "4", "3", "2", "3", "5", "1", "0", "1", "2", "4", "3", "4"]), 0)
+
+    def test_tetris_move_3(self):
+        self.assertEqual(Slessor.tetris_move(["L", "3", "4", "4", "5", "6", "2", "0", "6", "5", "3", "6", "6"]), 3)
 
 # Switch Sort
 #
-# Have the function SwitchSort(arr) take arr which will be an an array consisting of integers 1...size(arr) and determine what the fewest number of steps is in order to sort the array from least to greatest using the following technique: Each element E in the array can swap places with another element that is arr[E] spaces to the left or right of the chosen element.
+# Have the function SwitchSort(arr) take arr which will be an an array consisting of integers 1...size(arr)
+# and determine what the fewest number of steps is in order to sort the array
+# from least to greatest using the following technique:
+# Each element E in the array can swap places with another element that is arr[E] spaces to the left or right of the chosen element.
 #
 # You can loop from one end of the array to the other.
 #
-# For example: if arr is the array [1, 3, 4, 2] then you can choose the second element which is the number 3, and if you count 3 places to the left you'll loop around the array and end up at the number 4.
+# For example: if arr is the array [1, 3, 4, 2] then you can choose the second element which is the number 3,
+# and if you count 3 places to the left you'll loop around the array and end up at the number 4.
 #
-# Then you swap these elements and arr is then [1, 4, 3, 2]. From here only one more step is required, you choose the last element which is the number 2, count 2 places to the left and you'll reach the number 4, then you swap these elements and you end up with a sorted array [1, 2, 3, 4].
+# Then you swap these elements and arr is then [1, 4, 3, 2].
+# From here only one more step is required, you choose the last element which is the number 2,
+# count 2 places to the left and you'll reach the number 4,
+# then you swap these elements and you end up with a sorted array [1, 2, 3, 4].
 #
-# Your program should return an integer that specifies the least amount of steps needed in order to sort the array using the following switch sort technique.
+# Your program should return an integer that specifies the least amount of steps needed
+# in order to sort the array using the following switch sort technique.
 #
 # The array arr will at most contain five elements and will contain at least two elements.
 # Examples
@@ -156,7 +179,10 @@ class TestTetrisMove(unittest.TestCase):
 # Output: 2
 class TestSwitchSort(unittest.TestCase):
     def test_switch_sort_1(self):
-        self.assertEqual(True, False)
+        self.assertEqual(Slessor.switch_sort([3,1,2]), 2)
+
+    def test_switch_sort_2(self):
+        self.assertEqual(Slessor.switch_sort([1,3,4,2]), 2)
 
 if __name__ == '__main__':
     unittest.main()

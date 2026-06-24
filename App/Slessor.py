@@ -128,6 +128,15 @@ def sudoku_column_checker(sudoku_board_matrix):
         error_coordinates.append([flipped_error_coordinate[1], flipped_error_coordinate[0]])
     return error_coordinates
 
-
 def step_walk_in_out(number_of_steps):
     return number_of_steps
+
+def wildcard_characters(input_string):
+    response = False
+    return response
+
+def tetris_move(input_array):
+    return 1
+
+def switch_sort(input_array):
+    return 1
