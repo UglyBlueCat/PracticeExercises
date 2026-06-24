@@ -3,14 +3,16 @@ def sudoku_quadrant_checker(sudoku_board):
     print(tag + f'sudoku_board: {sudoku_board}')
     response = "legal"
     error_coordinates = []
-    error_quadrants = []
+    error_quadrants = ""
 
     error_coordinates += sudoku_row_checker(sudoku_board)
     print(tag + f'error_coordinates: {error_coordinates}')
 
     for coordinate in error_coordinates:
         print(tag + f'coordinate: {coordinate}')
-        error_quadrants.append(sudoku_quadrant_from_coordinate(coordinate))
+        if len(error_quadrants) > 0:
+            error_quadrants += ','
+        error_quadrants += str(sudoku_quadrant_from_coordinate(coordinate))
     print(tag + f'error_quadrants: {error_quadrants}')
 
     if len(error_quadrants) > 0:
