@@ -4,8 +4,11 @@ def sudoku_quadrant_checker(sudoku_board):
     response = "legal"
     error_coordinates = []
     error_quadrants = ""
+    sudoku_board_matrix = sudoku_convert_board_to_matrix(sudoku_board)
 
-    error_coordinates += sudoku_row_checker(sudoku_board)
+    error_coordinates += sudoku_row_checker(sudoku_board_matrix)
+    print(tag + f'error_coordinates: {error_coordinates}')
+    error_coordinates += sudoku_column_checker(sudoku_board_matrix)
     print(tag + f'error_coordinates: {error_coordinates}')
 
     for coordinate in error_coordinates:
@@ -21,10 +24,9 @@ def sudoku_quadrant_checker(sudoku_board):
 
     return response
 
-def sudoku_row_checker(sudoku_board):
+def sudoku_row_checker(sudoku_board_matrix):
     tag = 'sudoku_row_checker | '
     error_coordinates = []
-    sudoku_board_matrix = sudoku_convert_board_to_matrix(sudoku_board)
 
     for row in sudoku_board_matrix:
         # print(tag + f'row: {row}')
@@ -48,17 +50,17 @@ def sudoku_row_checker(sudoku_board):
     return error_coordinates
 
 def sudoku_convert_board_to_matrix(sudoku_board):
-    tag = 'sudoku_row_checker | '
-    print(tag + f'sudoku_board: {sudoku_board}')
+    tag = 'sudoku_convert_board_to_matrix | '
+    # print(tag + f'sudoku_board: {sudoku_board}')
     sudoku_board_matrix = []
 
     for row in sudoku_board:
-        print(tag + f'row: {row}')
+        # print(tag + f'row: {row}')
         row_list = row.strip('()').split(',')
-        print(tag + f'row_list: {row_list}')
+        # print(tag + f'row_list: {row_list}')
         sudoku_board_matrix.append(row_list)
 
-    print(tag + f'sudoku_board_matrix: {sudoku_board_matrix}')
+    # print(tag + f'sudoku_board_matrix: {sudoku_board_matrix}')
     return sudoku_board_matrix
 
 def sudoku_quadrant_from_coordinate(coordinate):
@@ -100,6 +102,26 @@ def sudoku_quadrant_from_coordinate(coordinate):
         else:
             print(tag + f'2 < column/3 ({column/3})')
             return 9
+
+def sudoku_column_checker(sudoku_board_matrix):
+    tag = 'sudoku_column_checker | '
+    print(tag + f'sudoku_board_matrix: {sudoku_board_matrix}')
+    flipped_sudoku_board = []
+
+    for column_index in range(len(sudoku_board_matrix[0])):
+        flipped_row = []
+        for row in sudoku_board_matrix:
+            flipped_row.append(row[column_index])
+        flipped_sudoku_board.append(flipped_row)
+
+    flipped_error_coordinates = sudoku_row_checker(flipped_sudoku_board)
+    print(tag + f'flipped_error_coordinates: {flipped_error_coordinates}')
+
+    error_coordinates = []
+    for flipped_error_coordinate in flipped_error_coordinates:
+        error_coordinates.append([flipped_error_coordinate[1], flipped_error_coordinate[0]])
+    return error_coordinates
+
 
 def step_walk_in_out(number_of_steps):
     return number_of_steps
