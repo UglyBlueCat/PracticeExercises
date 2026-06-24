@@ -20,7 +20,7 @@ from App import Slessor
 # but if it isn't legal, it should return the 3x3 quadrants (separated by commas) where the errors exist.
 #
 # The 3x3 quadrants are numbered from 1 to 9 starting from top-left going to bottom-right.
-class test_sudoku_quadrant_checker(unittest.TestCase):
+class TestSudokuQuadrantChecker(unittest.TestCase):
     def test_sudoku_quadrant_checker_1(self):
         self.assertEqual(
             "1,3,4",
@@ -75,7 +75,7 @@ class test_sudoku_quadrant_checker(unittest.TestCase):
 #
 # Input: 3
 # Output: 3
-class test_step_walk_in_out(unittest.TestCase):
+class TestStepWalkInOut(unittest.TestCase):
     def test_step_walk_in_out_1(self):
         self.assertEqual(True, False)
 
@@ -101,7 +101,7 @@ class test_step_walk_in_out(unittest.TestCase):
 # Output: false
 # Input: "**+*{2} mmmrrrkbb"
 # Output: true
-class test_wildcard_characters(unittest.TestCase):
+class TestWildcardCharacters(unittest.TestCase):
     def test_wildcard_characters_1(self):
         self.assertEqual(True, False)
 
@@ -125,7 +125,7 @@ class test_wildcard_characters(unittest.TestCase):
 # Output: false
 # Input: "$**+*{2} 9mmmrrrkbb"
 # Output: true
-class test_wildcards(unittest.TestCase):
+class TestWildcards(unittest.TestCase):
     def test_wildcards_1(self):
         self.assertEqual(True, False)
 
@@ -151,7 +151,7 @@ class test_wildcards(unittest.TestCase):
 # Output: 2
 # Input: ["O", "4", "3", "2", "3", "5", "1", "0", "1", "2", "4", "3", "4"]
 # Output: 0
-class test_tetris_move(unittest.TestCase):
+class TestTetrisMove(unittest.TestCase):
     def test_tetris_move_1(self):
         self.assertEqual(True, False)
 
@@ -174,7 +174,7 @@ class test_tetris_move(unittest.TestCase):
 # Output: 2
 # Input: [1,3,4,2]
 # Output: 2
-class test_switch_sort(unittest.TestCase):
+class TestSwitchSort(unittest.TestCase):
     def test_switch_sort_1(self):
         self.assertEqual(True, False)
 
