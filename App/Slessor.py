@@ -67,45 +67,45 @@ def sudoku_quadrant_from_coordinate(coordinate):
     tag = 'sudoku_quadrant_from_coordinate | '
     row = coordinate[0]
     column = coordinate[1]
-    print(tag + f'coordinate: {coordinate} row: {row} column: {column}')
+    # print(tag + f'coordinate: {coordinate} row: {row} column: {column}')
 
     if row/3 <= 1:
-        print(tag + f'row/3 ({row/3}) <= 1')
+        # print(tag + f'row/3 ({row/3}) <= 1')
         if column/3 <= 1:
-            print(tag + f'column/3 ({column/3}) <= 1')
+            # print(tag + f'column/3 ({column/3}) <= 1')
             return 1
         elif column/3 <= 2:
-            print(tag + f'1 < column/3 ({column/3}) <= 2')
+            # print(tag + f'1 < column/3 ({column/3}) <= 2')
             return 2
         else:
-            print(tag + f'2 < column/3 ({column/3})')
+            # print(tag + f'2 < column/3 ({column/3})')
             return 3
     elif row/3 <= 2:
-        print(tag + f'1 < row/3 ({row/3}) <= 2')
+        # print(tag + f'1 < row/3 ({row/3}) <= 2')
         if column/3 <= 1:
-            print(tag + f'column/3 ({column/3}) <= 1')
+            # print(tag + f'column/3 ({column/3}) <= 1')
             return 4
         elif column/3 <= 2:
-            print(tag + f'1 < column/3 ({column/3}) <= 2')
+            # print(tag + f'1 < column/3 ({column/3}) <= 2')
             return 5
         else:
-            print(tag + f'2 < column/3 ({column/3})')
+            # print(tag + f'2 < column/3 ({column/3})')
             return 6
     else:
-        print(tag + f'2 < row/3 ({row/3})')
+        # print(tag + f'2 < row/3 ({row/3})')
         if column/3 <= 1:
-            print(tag + f'column/3 ({column/3}) <= 1')
+            # print(tag + f'column/3 ({column/3}) <= 1')
             return 7
         elif column/3 <= 2:
-            print(tag + f'1 < column/3 ({column/3}) <= 2')
+            # print(tag + f'1 < column/3 ({column/3}) <= 2')
             return 8
         else:
-            print(tag + f'2 < column/3 ({column/3})')
+            # print(tag + f'2 < column/3 ({column/3})')
             return 9
 
 def sudoku_column_checker(sudoku_board_matrix):
     tag = 'sudoku_column_checker | '
-    print(tag + f'sudoku_board_matrix: {sudoku_board_matrix}')
+    # print(tag + f'sudoku_board_matrix: {sudoku_board_matrix}')
     flipped_sudoku_board = []
 
     for column_index in range(len(sudoku_board_matrix[0])):
@@ -115,7 +115,7 @@ def sudoku_column_checker(sudoku_board_matrix):
         flipped_sudoku_board.append(flipped_row)
 
     flipped_error_coordinates = sudoku_row_checker(flipped_sudoku_board)
-    print(tag + f'flipped_error_coordinates: {flipped_error_coordinates}')
+    # print(tag + f'flipped_error_coordinates: {flipped_error_coordinates}')
 
     error_coordinates = []
     for flipped_error_coordinate in flipped_error_coordinates:
